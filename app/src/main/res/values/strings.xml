@@ -17,4 +17,7 @@
     <string name="clock_fragment_label">Clock</string>
     <string name="clock_description">This clock is brought to you thanks to <tt>SharedFlow</tt> hot streams! 😎</string>
     <string name="clock_explanation">This clock works by using a Clock object that returns a <tt>SharedFlow</tt> created by using a flow which adds <tt>1000L</tt> every second to a time variable then <tt>emit</tt>s it.</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="timer_description">Timer brougth to you thanks to Flow Cold Streams!</string>
 </resources>

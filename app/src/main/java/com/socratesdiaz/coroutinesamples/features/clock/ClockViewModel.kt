@@ -1,4 +1,4 @@
-package com.example.coroutinesamples.features.clock
+package com.socratesdiaz.coroutinesamples.features.clock
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

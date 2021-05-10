@@ -1,4 +1,4 @@
-package com.example.coroutinesamples.features.main
+package com.socratesdiaz.coroutinesamples.features.main
 
 import android.os.Bundle
 import android.view.Menu
@@ -8,7 +8,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
-import com.example.coroutinesamples.R
+import com.socratesdiaz.coroutinesamples.R
 
 class MainActivity : AppCompatActivity() {
 

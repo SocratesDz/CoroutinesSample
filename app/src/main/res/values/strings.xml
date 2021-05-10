@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CoroutineSamples</string>
+    <string name="app_name">Coroutine Samples</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="second_fragment_label">Second Fragment</string>
@@ -14,4 +14,7 @@
     <string name="timer">Timer</string>
     <string name="food_factory">Food factory</string>
     <string name="api_fetching">API fetching</string>
+    <string name="clock_fragment_label">Clock</string>
+    <string name="clock_description">This clock is brought to you thanks to <tt>SharedFlow</tt> hot streams! 😎</string>
+    <string name="clock_explanation">This clock works by using a Clock object that returns a <tt>SharedFlow</tt> created by using a flow which adds <tt>1000L</tt> every second to a time variable then <tt>emit</tt>s it.</string>
 </resources>

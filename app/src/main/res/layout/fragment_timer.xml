@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/timerDisplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -49,21 +49,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <Button
+            <ImageButton
                 android:id="@+id/startPauseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:text="@string/start" />
+                android:padding="8dp"
+                android:src="@drawable/ic_play_circle_white"
+                android:background="@color/material_green"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="@string/start"
+                android:onClick="@{() -> viewModel.startPauseTimer()}"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/stopButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_weight="1"
-                android:text="@string/stop" />
+                android:padding="8dp"
+                android:src="@drawable/ic_stop_white"
+                android:background="@color/material_red"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="@string/stop"
+                android:onClick="@{() -> viewModel.stopTimer()}"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

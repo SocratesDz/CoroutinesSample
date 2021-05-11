@@ -31,7 +31,7 @@ class TimerViewModelTest {
     @Test
     fun `Start timer`() = runBlockingTest {
         val values = mutableListOf<Long>()
-        viewModel.startTimer()
+        viewModel.showTimer()
 
         val job = launch {
             advanceTimeBy(2000L)

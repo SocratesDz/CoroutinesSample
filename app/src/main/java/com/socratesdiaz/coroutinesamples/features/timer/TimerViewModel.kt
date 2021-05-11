@@ -2,32 +2,42 @@ package com.socratesdiaz.coroutinesamples.features.timer
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.currentCoroutineContext
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.isActive
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-class TimerViewModel : ViewModel() {
-    private var _timer = MutableStateFlow(0L)
-    var timer: StateFlow<Long> = _timer
+class TimerViewModel(private val timer: Timer) : ViewModel() {
+    private var _timerFlow = MutableStateFlow("00:00:00")
+    var timerFlow = _timerFlow.asStateFlow()
 
-    fun startTimer() {
+    fun showTimer() {
         viewModelScope.launch {
-            flow {
-                var seconds = 0L
-                while (currentCoroutineContext().isActive) {
-                    emit(seconds)
-                    delay(1000L)
-                    seconds += 1000L
-                }
-            }.collect { currentTime ->
-                _timer.value = currentTime
-            }
+            timer.getTime().map(::formatTime)
+                .collect { _timerFlow.value = it }
+
         }
     }
 
+    fun startPauseTimer() {
+        if(timer.isStarted()) {
+            timer.pause()
+        } else {
+            timer.start()
+        }
+    }
+
+    fun stopTimer() {
+        if(timer.isStarted()) {
+            timer.stop()
+        } else if(timer.isStopped()) {
+            timer.reset()
+        }
+    }
+
+    private fun formatTime(time: Long): String {
+        val seconds = time / 1000
+        return String.format("%02d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60))
+    }
 }

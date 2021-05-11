@@ -7,7 +7,8 @@ interface Timer {
     fun pause()
     fun stop()
     fun reset()
-    fun isStarted()
-    fun isStopped()
-    fun getTime(): Flow<Long>?
+    fun isStarted(): Boolean
+    fun isStopped(): Boolean
+    fun isPaused(): Boolean
+    fun getTime(): Flow<Long>
 }

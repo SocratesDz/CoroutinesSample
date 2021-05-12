@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/HomeFragment"
-        android:name="com.example.coroutinesamples.features.home.HomeFragment"
+        android:name="com.socratesdiaz.coroutinesamples.features.home.HomeFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_home">
 
@@ -18,10 +18,51 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_HomeFragment_to_timerFragment"
+            app:destination="@id/TimerFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_HomeFragment_to_postListFragment"
+            app:destination="@id/postListFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/ClockFragment"
-        android:name="com.example.coroutinesamples.features.clock.ClockFragment"
+        android:name="com.socratesdiaz.coroutinesamples.features.clock.ClockFragment"
         android:label="@string/clock_fragment_label"
         tools:layout="@layout/fragment_clock"/>
+    <fragment
+        android:id="@+id/TimerFragment"
+        android:name="com.socratesdiaz.coroutinesamples.features.timer.TimerFragment"
+        android:label="@string/timer"
+        tools:layout="@layout/fragment_timer"/>
+    <fragment
+        android:id="@+id/postListFragment"
+        android:name="com.socratesdiaz.coroutinesamples.features.apifetch.ui.PostListFragment"
+        android:label="@string/post_list"
+        tools:layout="@layout/fragment_post_list">
+        <action
+            android:id="@+id/action_postListFragment_to_postDetailFragment"
+            app:destination="@id/postDetailFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.socratesdiaz.coroutinesamples.features.apifetch.ui.PostDetailFragment"
+        android:label="@string/post_detail"
+        tools:layout="@layout/fragment_post_detail" >
+        <argument
+            android:name="post"
+            app:argType="com.socratesdiaz.coroutinesamples.features.apifetch.dto.Post" />
+    </fragment>
 </navigation>

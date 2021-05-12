@@ -4,17 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.socratesdiaz.coroutinesamples.databinding.FragmentTimerBinding
+import com.socratesdiaz.coroutinesamples.features.base.BaseFragment
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import org.kodein.di.instance
+import org.kodein.di.newInstance
 
-class TimerFragment : Fragment() {
+class TimerFragment : BaseFragment() {
     private var binding: FragmentTimerBinding? = null
-    private lateinit var viewModel: TimerViewModel
+    private val viewModel: TimerViewModel by newInstance { TimerViewModel(instance()) }
     private var timerJob: Job? = null
 
     @ExperimentalCoroutinesApi
@@ -23,8 +25,6 @@ class TimerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = TimerViewModel(TimerImpl(lifecycleScope))
-
         binding = FragmentTimerBinding.inflate(inflater)
         binding?.viewModel = viewModel
         return binding?.root

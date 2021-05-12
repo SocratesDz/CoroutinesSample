@@ -48,6 +48,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun navigateToApiFetchingScreen() {
-
+        findNavController().navigate(R.id.action_HomeFragment_to_postListFragment)
     }
 }

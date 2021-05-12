@@ -19,5 +19,8 @@
     <string name="clock_explanation">This clock works by using a Clock object that returns a <tt>SharedFlow</tt> created by using a flow which adds <tt>1000L</tt> every second to a time variable then <tt>emit</tt>s it.</string>
     <string name="start">Start</string>
     <string name="stop">Stop</string>
-    <string name="timer_description">Timer brougth to you thanks to Flow Cold Streams!</string>
+    <string name="timer_description">Timer brought to you thanks to Flow Cold Streams and Channels!</string>
+    <string name="post_list">Post List</string>
+    <string name="post_detail">Post Detail</string>
+    <string name="api_fetch_description">This list of placeholder posts comes from an external API using Retrofit, Flow and coroutines!</string>
 </resources>

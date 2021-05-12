@@ -15,29 +15,35 @@ class TimerViewModel(private val timer: Timer) : ViewModel() {
     fun showTimer() {
         viewModelScope.launch {
             timer.getTime().map(::formatTime)
-                .collect { _timerFlow.value = it }
-
+                .collect {
+                    _timerFlow.value = it
+                }
         }
     }
 
-    fun startPauseTimer() {
-        if(timer.isStarted()) {
-            timer.pause()
-        } else {
+    fun startTimer() {
+        viewModelScope.launch {
             timer.start()
         }
     }
 
     fun stopTimer() {
-        if(timer.isStarted()) {
-            timer.stop()
-        } else if(timer.isStopped()) {
-            timer.reset()
+        viewModelScope.launch {
+            if(timer.isStarted()) {
+                timer.stop()
+            } else if(timer.isStopped()) {
+                timer.reset()
+            }
         }
     }
 
     private fun formatTime(time: Long): String {
         val seconds = time / 1000
         return String.format("%02d:%02d:%02d", seconds / 3600, (seconds % 3600) / 60, (seconds % 60))
+    }
+
+    override fun onCleared() {
+        timer.dispose()
+        super.onCleared()
     }
 }

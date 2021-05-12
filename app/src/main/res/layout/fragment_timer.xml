@@ -60,7 +60,7 @@
                 android:background="@color/material_green"
                 android:foreground="?attr/selectableItemBackground"
                 android:text="@string/start"
-                android:onClick="@{() -> viewModel.startPauseTimer()}"/>
+                android:onClick="@{() -> viewModel.startTimer()}"/>
 
             <ImageButton
                 android:id="@+id/stopButton"

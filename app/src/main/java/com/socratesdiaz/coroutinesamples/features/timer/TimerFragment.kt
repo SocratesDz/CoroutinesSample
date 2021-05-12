@@ -27,6 +27,7 @@ class TimerFragment : BaseFragment() {
     ): View? {
         binding = FragmentTimerBinding.inflate(inflater)
         binding?.viewModel = viewModel
+        binding?.lifecycleOwner = viewLifecycleOwner
         return binding?.root
     }
 

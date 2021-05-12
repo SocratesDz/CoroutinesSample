@@ -4,6 +4,4 @@
 
 ## Timer
 
-## Food factory
-
 ## API fetch
